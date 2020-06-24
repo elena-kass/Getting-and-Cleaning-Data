@@ -32,9 +32,9 @@ You should create one R script called run_analysis.R that does the following.
 This repository contains one analysis code titled run_analysis.R which performes the following steps:
 1) Downloads the files from the source and reads them in R as tables.
 2) Adds the feature labels found in features.txt to the data columns from trainX.txt and testX.txt
-3) Merges the data files in order to obtain one long dataframe. The first column is subjectID, the second column is activity and the rest of the columns are the features being measured. The trainX and testX data has been merged together using rbind.
-4) The mean and std values are extracted from the dataframe.
-5) The activity is changed from numbers to descriptive variables
-6) The feature labels are adjusted to be more tidy
+3) Merges the data files in order to obtain one long dataframe. The first column is subjectID (originally obtained from subject_train.txt and subject_test.txt), the second column is activity (originally obtained by trainY.txt and testY.txt as a numeric) and the rest of the columns are the features being measured found in trainX.txt and testX.txt.The trainX and testX data has been merged together using rbind to create a dataframe where the first 2947 rows are from "Train" and the rest are from "Test".
+4) The mean and std values are extracted from the dataframe using grep to find the indices of the columns that include "mean" and "std".
+5) The activity which is originally numeric is changed descriptive facotr variables using recode.
+6) The feature labels are adjusted to be more tidy.
 7) A second dataframe Data2 is created that containes the average of each feature per activity and subject.
 
